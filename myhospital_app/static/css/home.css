@@ -1,0 +1,55 @@
+#login_section {
+     display: flex;
+     justify-content: space-around;
+     margin-top: 5%;
+     margin-bottom: 5%;
+     flex-wrap: wrap;
+
+}
+.child_login {
+    width: 300px;
+    height: inherit;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+#dep-section{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+#dep-heading{
+text-align: center;
+margin: 35px;
+    
+font-family: 'Times New Roman', Times, serif;
+}
+#departments{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-evenly;
+    height: 350px;
+
+}
+.child-dep{
+    width: 300px;
+    height: 340px;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    text-overflow: clip;
+    
+}
+.child-dep:hover{
+    box-shadow: 0px 0px 10px rgba(1, 1, 1, 0.2);
+}
+.child-dep img {
+    width: 45%;
+    border-radius: 50px;
+}
+.dep-button{
+text-align: center;
+}

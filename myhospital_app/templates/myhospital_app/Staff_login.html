@@ -1,0 +1,39 @@
+{% extends "myhospital_app/master.html" %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<script src="{% static 'js/login_validations.js' %}"></script>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<h1>STAFF LOGIN</h1>
+
+ 
+<div class="container-fluid login_parent">
+	<div class="log_form">
+		<img src="{% static 'image/staff_login.png' %}" alt="" class="logimg" height="370px">
+
+	</div>
+	 
+	<div class="log_form">
+		<h1>Login</h1>
+		<form>
+		  <label for="username">Hospital ID:</label>
+		  <input type="text" id="id" name="staff_id" required><span id="id_span"></span>
+		  <label for="password">Password:</label>
+		  <input type="password" id="password" name="password" required><span id="password_span"></span>
+		  <input type="submit" value="Login" onclick="loginvalidate()"> <p class="signup-link">
+			Not a staff !
+			<a href="login">Patient login</a> 
+		  </p>
+		</form>
+	  </div>
+	  
+
+	  
+</div>	
+ {% endblock %}

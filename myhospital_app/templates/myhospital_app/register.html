@@ -1,0 +1,65 @@
+{% extends "myhospital_app/master.html" %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+{% endblock %}
+
+
+
+{% block content %}
+	
+ 
+ 
+	<div class="container-fluid reg">
+		<form>
+			<h1>Register</h1>
+			<label for="name">Name of the Patient:</label>
+			<input type="text" id="name" name="name" required>
+			<label for="mobil no">Mobile No:</label>
+			<input type="text" id="mobile">
+			<label for="DOB">Date Of Birth:</label>
+			<input type="date" id="dob" name="dob" required>
+			<label for="gender">Gender:</label>
+              <select id="gender" name="gender" required>
+                  <option value="">Select gender:</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+              </select>
+			<label for="Place of Patient">Place of the Patient:</label> 
+			<input type="text" id="place">
+			<label for="Department">Department:</label>
+              <select id="department" name="department" required>
+                  <option value="">Select Required Department:</option>
+                  <option value="Cardiology">Cardiology</option>
+                  <option value="Cardiology">Cardiology</option>
+                  <option value="Cardiology">Cardiology</option>
+				  <option value="Cardiology">Cardiology</option>
+              </select>
+			  <label for="Doctors">Doctor:</label>
+              <select id="doctor" name="doctor" required>
+                  <option value="">Select Required Department:</option>
+                  <option value="Babu">Babu</option>
+				  <option value="Babu">Babu</option>
+				  <option value="Babu">Babu</option>
+				  <option value="Babu">Babu</option>
+                  <option value="Babu">Babu</option>
+              </select>
+			  <label for="Appoinment Date">Preferred Date Of Appoinment</label>
+			  <input type="date" id="appoinment_date">
+			  <br>
+			
+			 
+			  <input type="submit" value="Login">
+			  <a href="home">Go back</a>
+		</form>
+	</div>
+
+
+	{% endblock %}
+
+ 
+</body>
+</html>
+ 

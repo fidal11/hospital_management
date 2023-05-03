@@ -1,0 +1,52 @@
+{% extends "myhospital_app/master.html" %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/patient_portal.css' %}">
+
+{% endblock %}
+
+
+
+{% block content %} 
+<div class="container-fluid parent_portal  ">
+     
+        <div class="child1">
+            <img src="{% static 'image/appoinment.png' %}" alt="" width="40%">
+            <h5>Appoinment</h5>
+            <p>new patient appoinment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, dignissimos.</p>
+          <a href="register"> <button type="button" class="btn btn-success  ">Go</button></a> 
+        </div>
+        <div class="child1"></div>
+
+    </div>
+     
+<!--          
+        <div class="log_form  col-md-4">
+            <h1>Login</h1>
+            <form>
+              <label for="username">Username:</label>
+              <input type="text" id="username" name="username" required>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password" required>
+              <input type="submit" value="Login">
+              <a href="home">Go back</a>
+            </form>
+          </div> -->
+          
+    
+          
+    </div>	
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
