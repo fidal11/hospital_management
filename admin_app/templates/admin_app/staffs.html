@@ -1,0 +1,77 @@
+{% extends "admin_app/admin_master.html" %}
+{% load static %}
+{% block header %}
+<style>
+
+
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid admin-cards ">
+
+    <a href="{% url 'admin_app:staff_register' %}">
+        <div class="card mb-3" style="max-width: 340px; max-height:200px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3456/3456388.png" class="img-fluid rounded-start" alt="..."
+                  width="350px">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h2 class="card-title">Register Staffs</h2>
+                  <h3></h3>
+                  <h6></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+    </a>
+  
+    <a href="{% url 'admin_app:staff_rec' %}">
+
+      <div class="card mb-3" style="max-width: 340px; max-height:200px; ">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{% static 'image/staff.png' %}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title">Staff Records</h2>
+              <h3></h3>
+    
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </a>
+  
+  
+  
+    <div class="card mb-3" style="max-width: 340px; max-height:200px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/166/166256.png"
+            class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h2 class="card-title">Update Profile</h2>
+            <h3></h3>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+
+{% endblock %}

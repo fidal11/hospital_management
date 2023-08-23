@@ -1,0 +1,100 @@
+{% extends "myhospital_app/master.html" %}
+{% load static %}
+{% block header %}
+
+<style>
+    .section-1 {
+
+        height: 200px;
+        background-image: url(https://symphony.cdn.tambourine.com/red-house-tavern-crossroads-ca/media/cache/redhousetavern-contactus-hero-61a510417bc4b-1920x600.jpg);
+
+    }
+
+    h1 {
+        font-family: fantasy;
+
+        color: white;
+        padding-top: 20px;
+    }
+
+    .underline-small {
+
+        display: inline-block;
+        position: relative;
+
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .p {
+        color: white;
+    }
+
+    .section-2 {
+        display: flex;
+        flex-wrap: wrap;
+        height: 250px;
+        justify-content: space-evenly;
+        padding: 20px;
+       
+    }
+    .contact-box{
+        height: 220px;
+        width: 220px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 2px;
+    }
+    h4{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-transform: capitalize;
+    }
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid section-1">
+    <h1 class="underline-small">Contact Us</h1>
+    <div class="p"><a href="">Home ></a>Contact us</div>
+
+</div>
+<div class="container-fluid section-2">
+    <div class="contact-box">
+        <img src="{% static 'image/contact.png' %}" alt="" class="img">
+        <h4>Phone Number</h4>
+        <p>(0522)-4005300</p>
+        <p>(+91) 911 999 9070</p>
+
+    </div>
+    <div class="contact-box">
+        <img src="{% static 'image/email.png' %}" alt="" class="img">
+        <h4>Email Adress</h4>
+        <p>myhospital@gmail.com</p>
+        <p>myhospital01@gmail.com</p>
+
+    </div>
+    <div class="contact-box">
+        <img src="{% static 'image/adress.png' %}" alt="" class="img">
+       <h4>Our Location</h4>
+       <p>GF-C-284, Manglam Building, Near 8 No,</p>
+       <p>Chauraha, Nirala Nagar, Lucknow</p>
+
+    </div>
+
+
+
+
+</div>
+<div class="container-fluid section-3">
+
+</div>
+
+{% endblock %}

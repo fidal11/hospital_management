@@ -1,65 +1,180 @@
 {% extends "myhospital_app/master.html" %}
 {% load static %}
 {% block header %}
-<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<style>
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		margin-top: 50px;
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	input[type=text],
+	input[type=password],
+	input[type=file],
+	input[type=date],
+	select {
+		margin: 10px;
+		padding: 10px;
+		width: 500px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+	}
+
+	input[type=submit] {
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 10px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	label {
+		margin: 10px;
+	}
+
+	.signup {
+		text-align: center;
+	}
+	 
+</style>
 
 {% endblock %}
 
 
 
 {% block content %}
-	
- 
- 
-	<div class="container-fluid reg">
-		<form>
-			<h1>Register</h1>
-			<label for="name">Name of the Patient:</label>
-			<input type="text" id="name" name="name" required>
-			<label for="mobil no">Mobile No:</label>
-			<input type="text" id="mobile">
-			<label for="DOB">Date Of Birth:</label>
-			<input type="date" id="dob" name="dob" required>
-			<label for="gender">Gender:</label>
-              <select id="gender" name="gender" required>
-                  <option value="">Select gender:</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="other">Other</option>
-              </select>
-			<label for="Place of Patient">Place of the Patient:</label> 
-			<input type="text" id="place">
-			<label for="Department">Department:</label>
-              <select id="department" name="department" required>
-                  <option value="">Select Required Department:</option>
-                  <option value="Cardiology">Cardiology</option>
-                  <option value="Cardiology">Cardiology</option>
-                  <option value="Cardiology">Cardiology</option>
-				  <option value="Cardiology">Cardiology</option>
-              </select>
-			  <label for="Doctors">Doctor:</label>
-              <select id="doctor" name="doctor" required>
-                  <option value="">Select Required Department:</option>
-                  <option value="Babu">Babu</option>
-				  <option value="Babu">Babu</option>
-				  <option value="Babu">Babu</option>
-				  <option value="Babu">Babu</option>
-                  <option value="Babu">Babu</option>
-              </select>
-			  <label for="Appoinment Date">Preferred Date Of Appoinment</label>
-			  <input type="date" id="appoinment_date">
-			  <br>
-			
-			 
-			  <input type="submit" value="Login">
-			  <a href="home">Go back</a>
-		</form>
+
+<div class="container-fluid form">
+	<div class="" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+		<h3>Make an Appoinment</h3>
 	</div>
+	<table>
+		{{ msg }}
 
 
-	{% endblock %}
 
- 
-</body>
-</html>
- 
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			<tr>
+				<td><label for="name">Name :</label></td>
+				<td><input type="text" id="name" name="name" required></td>
+			</tr>
+
+			<tr>
+				<td><label for="age">Age :</label></td>
+				<td><input type="text" name="age" required></td>
+			</tr>
+			<tr>
+				<td><label for="DOB">Date Of Birth :</label></td>
+				<td><input type="date" id="dob" name="dob" required></td>
+
+			</tr>
+			<tr>
+				<td><label for="gender">Gender :</label></td>
+
+				<td>
+					<select name="gender" id="gender">
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="place">Place :</label></td>
+				<td><input type="text" name="place"></td>
+			</tr>
+
+			<tr>
+				<td><label for="phone">Phone No :</label></td>
+				<td><input type="text" name="phone"></td>
+
+			</tr>
+
+
+			<tr>
+				<td><label for="email">Email :</label></td>
+				<td><input type="text" name="email"></td>
+
+			</tr>
+
+			<tr>
+				<td><label for="">Department :</label></td>
+				<td>
+					<select name="department" id="department-select">
+						<option value="" selected disabled>Select a Department</option>
+						{% for i in departments %}
+						<option value="{{i.id}}">{{i.name}}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="doctor">Doctor :</label></td>
+				<td>
+					<select name="doctor" id="doctor-select">
+						<option value="" disabled selected>Select Doctor</option>
+						{% for i in doctor %}
+						
+						<option value="{{i.id}}">{{i.name}}</option>
+						{% endfor %}
+					</select>
+				</td>
+
+			</tr>
+			<tr>
+				<td><label for="date">Prefered Date of Appoinment :</label></td>
+				<td><input type="date" name="date"></td>
+			</tr>
+
+
+
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
+
+		</form>
+	</table>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#department-select').on('change', function() {
+            var departmentId = $(this).val();
+            $.ajax({
+                url: '/get_doctors/',
+                data: { department_id: departmentId },
+                dataType: 'json',
+                success: function(data) {
+                    var doctorSelect = $('#doctor-select');
+                    doctorSelect.empty();
+                    $.each(data, function(index, doctor) {
+                        doctorSelect.append($('<option>').text(doctor.name).attr('value', doctor.id));
+                    });
+                }
+            });
+        });
+    });
+</script>
+
+
+
+< {% endblock %}

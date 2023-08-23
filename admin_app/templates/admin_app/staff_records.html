@@ -1,0 +1,64 @@
+{% extends "admin_app/admin_master.html" %}
+{% load static %}
+{% block header %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        
+      }
+      
+      th, td {
+         
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      .doc-rec{
+        padding-top: 50px;
+      }
+
+
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container-fluid doc-rec">
+<table>
+    <tr>
+      <th>NAME</th>
+      <th>AGE</th>
+      <th>EMAIL</th>
+      <th>MOBILE</th>
+      <th>DEPARTMENT</th>
+      <th>ID</th>
+      <th>IMAGE</th>
+    </tr>
+    {% for staff in staff %}
+    <tr>
+      <td>{{staff.name}}</td>
+      <td>{{staff.age}}</td>
+      <td>{{staff.email}}</td>
+      <td>{{staff.mobile}}</td>
+      <td>{{staff.department}}</td>
+      <td>{{staff.staffid}}</td>
+      <td><img src="{{staff.image.url}}" alt="*" width="10px"></td>
+
+    </tr>
+     {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

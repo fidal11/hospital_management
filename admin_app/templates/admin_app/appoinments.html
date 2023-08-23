@@ -1,0 +1,76 @@
+{% extends "admin_app/admin_master.html" %}
+{% load static %}
+{% block header %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        
+      }
+      
+      th, td {
+         
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      .doc-rec{
+        padding-top: 50px;
+      }
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+ 
+<div class="container-fluid doc-rec">
+    
+
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Assigned Doctor</th>
+          <th>Department</th>
+          <th>Appoinment Date</th>
+
+          <th>Status</th>
+
+          
+        </tr>
+        {% for i in appoinments %} 
+        <tr>
+          <td>{{i.name}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{i.Status}}</td>
+          <td><a href=" ">Approve</a></td>
+           
+           
+    
+        </tr>
+        {% endfor %}
+         
+      </table>
+    </div>
+    
+ 
+
+{% endblock %}

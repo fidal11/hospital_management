@@ -1,0 +1,61 @@
+{% extends "doctor/master.html" %}
+{% load static %}
+{% block header %}
+<style>
+
+
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid doctor-cards  ">
+     
+
+    
+
+   
+
+    <a href="{% url 'doctor:records' %}">
+        <div class="card cards mb-3 " style="max-width: 340px; max-height:200px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src=" https://cdn.icon-icons.com/icons2/2266/PNG/512/crowd_patient_patients_icon_140474.png"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8 ">
+                    <div class="card-body">
+                        <h2 class="card-title">Patient Records</h2>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="{% url 'doctor:discharge_request' %}">
+        <div class="card cards mb-3" style="max-width: 340px; max-height:200px;">
+            <div class="row g-0 card3">
+                <div class="col-md-4">
+                    <img src="https://thumbs.dreamstime.com/b/discharge-icon-discharge-release-276477125.jpg"
+                        class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title">Discharge Request</h2>
+    
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+
+</div>
+
+{% endblock %}

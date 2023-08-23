@@ -13,19 +13,18 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
-#dep-section{
+.dep-section{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 
 }
-#dep-heading{
+.dep-heading{
 text-align: center;
 margin: 35px;
-    
-font-family: 'Times New Roman', Times, serif;
+font-family:fantasy;
 }
-#departments{
+.department{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -35,12 +34,13 @@ font-family: 'Times New Roman', Times, serif;
 }
 .child-dep{
     width: 300px;
-    height: 340px;
+    height: 320px;
     padding: 20px;
-    border-radius: 5px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     text-overflow: clip;
+    transition: 500ms;
+    border-radius: 2px;
     
 }
 .child-dep:hover{
@@ -52,4 +52,9 @@ font-family: 'Times New Roman', Times, serif;
 }
 .dep-button{
 text-align: center;
+}
+.false-section{
+    height: 500px;
+    display: flex;
+    justify-content: center;
 }

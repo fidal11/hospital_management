@@ -1,0 +1,128 @@
+{% extends "admin_app/admin_master.html" %}
+{% load static %}
+{% block header %}
+<style>
+    form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		margin-top: 50px;
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	input[type=text],input[type=password],input[type=file],select {
+		margin: 10px;
+		padding: 10px;
+		width: 500px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+	}
+
+	input[type=submit] {
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 10px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	label {
+		margin: 10px;
+	}
+
+	.signup {
+		text-align: center;
+	}
+
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid form">
+	<div class="" style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+		<h3>ADD STAFF</h3>
+	</div>
+	<table>
+		{{ msg }}
+
+
+
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+
+			<tr>
+				<td><label for="name">Name :</label></td>
+				<td><input type="text" id=" " name="name"></td>
+			</tr>
+
+			<tr>
+				<td><label for="age">Age :</label></td>
+				<td><input type="text" name="age"></td>
+			</tr>
+
+            <tr>
+				<td><label for="">Department :</label></td>
+				<td><select name="department" id="department">
+					<option value="" selected disabled>Select Department</option>
+					{% for i in department %}
+					<option value="{{i.id}}">{{i.name | title }}</option>
+					{% endfor %}
+					 
+				</select></td>
+			</tr>
+			<tr>
+				<td><label for="">Qualification :</label></td>
+				<td><input type="text" name="qualification"></td>
+			</tr>
+
+             
+
+            <tr>
+				<td><label for="password">Password :</label></td>
+				<td><input type="password" name="password"></td>
+
+			</tr>
+
+			<tr>
+				<td><label for="email">Email :</label></td>
+				<td><input type="text" name="email"></td>
+
+			</tr>
+            <tr>
+				<td><label for="mobile">Mobile :</label></td>
+				<td><input type="text" name="mobile"></td>
+
+			</tr>
+
+			<tr>
+				<td><label for="image">Image</label></td>
+				<td><input type="file" name="image"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>
+
+		</form>
+	</table>
+</div>
+
+
+{% endblock %}

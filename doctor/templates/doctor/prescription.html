@@ -1,0 +1,67 @@
+{% extends "doctor/master.html" %}
+{% load static %}
+{% block header %}
+<style>
+	table {
+        width: 100%;
+        border-collapse: collapse;
+        
+      }
+      
+      th, td {
+         
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      
+       
+      .doc-rec{
+        padding-top: 50px;
+      }
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+ 
+
+<div class="mb-3">
+	<table>
+		<tr>
+	<th>Name :</th>
+	
+	<td>{{patient.name |title}}</td>
+	<th>Age :</th>
+	<td>{{patient.age}}</td>
+		</tr>
+		<tr>
+			<th>DOB :</th>
+			<td>{{patient.dob}}</td>
+			<th>Place</th>
+			<td>{{patient.place |title}}</td>
+		</tr>
+	</table>
+  </div>
+  <form action="" method="POST">
+	{% csrf_token %}
+
+  <div class="mb-3">
+	<label for="exampleFormControlTextarea1" class="form-label">Report :</label>
+	<textarea class="form-control" id="" rows="4" name="report"></textarea>
+  </div>
+  <div class="mb-3">
+	<label for="exampleFormControlTextarea1" class="form-label">Medicine :</label>
+	<textarea class="form-control" id="" rows="4" name="medicine"></textarea>
+  </div>
+  <div class="mb-3" style="text-align: center;"><button type="submit">Add prescription</button></div>
+</form>
+{% endblock %}

@@ -21,12 +21,13 @@
 	 
 	<div class="log_form">
 		<h1>Login</h1>
-		<form>
+		<form method='POST'>
+			{% csrf_token %}
 		  <label for="username">Hospital ID:</label>
 		  <input type="text" id="id" name="staff_id" required><span id="id_span"></span>
 		  <label for="password">Password:</label>
 		  <input type="password" id="password" name="password" required><span id="password_span"></span>
-		  <input type="submit" value="Login" onclick="loginvalidate()"> <p class="signup-link">
+		  <input type="submit" value="Login" onclick=""> <p class="signup-link">
 			Not a staff !
 			<a href="login">Patient login</a> 
 		  </p>

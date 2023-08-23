@@ -16,9 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf.urls.static import static
+from django.conf import settings
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('myhospital_app.urls')),
-    path('',include('admin_app.urls')),
+    path('admin_app/',include('admin_app.urls')),
+    path('doctor/',include('doctor.urls')),
+    path('staff/',include('staff.urls')),
+    path('patient/',include('patient.urls')),
+    
+    
+    
 ]

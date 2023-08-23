@@ -1,0 +1,133 @@
+{% extends "myhospital_app/master.html" %}
+{% load static %}
+{% block header %}
+
+<style>
+    body {
+        font-style: normal;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        color: darkcyan;
+        padding-top: 50px;
+
+
+        
+        font-family: fantasy;
+    }
+
+    h2 {
+        color: darkcyan;
+    }
+
+     
+
+    p {
+         
+         font-family: 'Times New Roman', Times, serif;
+         font-weight: 400;
+    }
+
+    .mission-values {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    .mission-values div {
+        flex: 1;
+        padding: 10px;
+
+
+        border-radius: 5px;
+    }
+
+    .services {
+        list-style: none;
+        padding: 0;
+    }
+
+    .services li {
+        margin-bottom: 10px;
+    }
+
+    .heading {
+        display: flex;
+        flex-direction: column;
+        font-size: x-large;
+        height: 800px;
+        background-image: url(https://wallpaperaccess.com/full/3464162.jpg);
+    }
+</style>
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+<div class="container-fluid heading">
+    <h1>About Us</h1>
+     
+     
+    <p>Welcome to My hospital where we prioritize the health and well-being of our patients. Our hospital is
+        dedicated to providing top-notch medical care, advanced technology, and compassionate services to the community.
+    </p>
+    <p>In Our new website, We encourage you to find out more about the values and vision that guides us, the
+        services and programs we offer, the indicators that ensure our continued accountability and transparency, and
+        the news and events that matter most to you. It is the place where you will find information on career
+        opportunities with HMH and be able to access general healthcare information to keep you well informed.</p>
+</div>
+
+
+
+<div class="container">
+
+
+    <div class="mission-values">
+        <div>
+            <h2>Our Mission</h2>
+            <p>We aim to improve the quality of life for our patients by delivering exceptional healthcare with
+                integrity and empathy.</p>
+        </div>
+        <div>
+            <h2>Our Values</h2>
+            <p>We uphold the following values in all our interactions and services:</p>
+            <ul>
+                <li>Compassion</li>
+                <li>Excellence</li>
+                <li>Respect</li>
+                <li>Innovation</li>
+                <li>Collaboration</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>Our Services</h2>
+    <ul class="services">
+        <li>General Medicine</li>
+        <li>Emergency and Trauma Care</li>
+        <li>Surgery and Specialized Procedures</li>
+        <li>Maternity and Obstetrics</li>
+        <li>Pediatrics</li>
+        <li>Diagnostic Imaging</li>
+        <li>Rehabilitation Services</li>
+        <li>Mental Health Services</li>
+        <li>And more...</li>
+    </ul>
+</div>
+
+{% endblock %}

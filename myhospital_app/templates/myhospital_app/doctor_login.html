@@ -21,12 +21,14 @@
 	 
 	<div class="log_form">
 		<h1>Login</h1>
-		<form>
-		  <label for="username">Hospital ID:</label>
-		  <input type="text" id="id" name="hospital_id" required><span id="id_span"></span>
+		<form method="POST">
+            {% csrf_token %}
+			
+		  <label for="username">Doctor ID:</label>
+		  <input type="text" id="id" name="doctor_id" required><span id="id_span"></span>
 		  <label for="password">Password:</label>
 		  <input type="password" id="password" name="password" required><span id="password_span"></span>
-		  <input type="submit" value="Login" onclick="loginvalidate()">
+		  <input type="submit" value="Login" onclick="">
 		</form>
 	  </div>
 	  

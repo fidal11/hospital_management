@@ -1,0 +1,76 @@
+{% extends "admin_app/admin_master.html" %}
+{% load static %}
+{% block header %}
+<style>
+
+
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid admin-cards ">
+    <div class="card mb-3" style="max-width: 340px; max-height:200px; ">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{% static 'image/doctor.png' %}" class="img-fluid rounded-start"
+                    alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">Total Doctors</h2>
+                    <h3>5</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mb-3 " style="max-width: 340px; max-height:200px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{% static 'image/patient2.png' %}" class="img-fluid rounded-start"
+                    alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">Total Patients</h2>
+                    <h3>5</h3>
+                    <h6> </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3" style="max-width: 340px; max-height:200px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://static.vecteezy.com/system/resources/previews/001/880/227/original/nurse-professional-avatar-character-icon-free-vector.jpg"
+                    class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">Total Staffs</h2>
+                    <h3>5</h3>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="container-fluid admin-cards">
+
+
+
+
+
+</div>
+
+{% endblock %}

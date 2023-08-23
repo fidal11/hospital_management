@@ -2,6 +2,7 @@
 {% load static %}
 {% block header %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 {% endblock %}
 
@@ -13,51 +14,6 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="{% static 'image/poster4.jpg' %}" class="d-block w-100" alt="..">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'image/poster2.jpg' %}" class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</section>
-
-
-<div id="login_section">
-
-    <div class="child_login">
-
-        <h2>New to the Hospital?</h3>
-            <p>Make an appoinment through our website its simple and easy .orem ipsum, dolor sit amet consectetur
-                adipisicing elit. Modi accusantium illum illo iure omnis dolor
-                L animi maxime quam nostrum voluptates Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Eveniet, repudiandae</p>
-            <a href="register"> <button type="button" class="btn btn-outline-success">Go</button></a>
-    </div>
-
-    <div class="child_login">
-        <a href="register"> <img src="{% static 'image/patient_portal.png' %}" alt=""></a>
-
-    </div>
-
-</div>
-
-
-
-<section>
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'image/poster.jpg' %}" class="d-block w-100" alt="..">
             </div>
             <div class="carousel-item">
                 <img src="{% static 'image/poster3.jpg' %}" class="d-block w-100" alt="...">
@@ -77,15 +33,60 @@
 </section>
 
 
+<div id="login_section">
 
-<div id="dep-section">
+    <div class="child_login" data-aos="fade-right" data-aos-duration="7000" data-aos-easing="ease-in-out">
+
+        <h2>New to the Hospital?</h3>
+            <p>Make an appoinment through our website its simple and easy .orem ipsum, dolor sit amet consectetur
+                adipisicing elit. Modi accusantium illum illo iure omnis dolor
+                L animi maxime quam nostrum voluptates Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Eveniet, repudiandae</p>
+            <a href="register"> <button type="button" class="btn btn-outline-success">Go</button></a>
+    </div>
+
+    <div class="child_login" data-aos="fade-left" data-aos-duration="7000" data-aos-easing="ease-in-out">
+        <a href="register"> <img src="{% static 'image/patient_portal.png' %}" alt=""></a>
+
+    </div>
+
+</div>
 
 
 
-    <div id="dep-heading">
+<section>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'image/poster2.jpg' %}" class="d-block w-100" alt="..">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'image/poster.jpg' %}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+
+
+<div class="dep-section" >
+
+
+
+    <div class="dep-heading" data-aos="fade-up" data-aos-duration="7000" data-aos-easing="ease-in-out">
         <h1>OUR DEPARTMENTS</h1>
     </div>
-    <div id="departments" class=" container-fluid">
+    <div class="department container-fluid" data-aos="fade-up" data-aos-duration="7000" data-aos-easing="ease-in-out">
 
 
         <div class="child-dep">
@@ -125,15 +126,50 @@
 
 
     </div>
-    <div class="dep-button">
+    <div class="dep-button" data-aos="fade-up" data-aos-duration="7000" data-aos-easing="ease-in-out">
         <button type="button" class="btn btn-outline-success">Show More</button>
     </div>
 </div>
+
 <br>
 
+<div class="container-fluid false-section">
+    <div class="container-fluid" style="padding-top: 50px;"><img src="{% static 'image/hospitall.png' %}" alt="" width="100%"></div>
+</div>
+
+
+
+<div class="container-fluid ">
+    <div class="row dep-heading">
+        <h1>Meet Our Doctors</h1>
+        {% for i in doctor %}
+        <div class="col-md-3">
+            <div class="child-dep">
+                <img src="{{i.image.url}}" alt="">
+                <h3>{{i.name |title}}</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique modi eligendi laudantium pariatur
+                    saepe,
+                    molestias mollitia, aliquam natus, dolor consequatur officiis magnam praesentium cum nemo.</p>
+    
+            </div>
+
+        </div>
+{% endfor %}
+    </div>
+
+</div>
 
 
 
 
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+   
+  });
+</script>
 
 {% endblock %}

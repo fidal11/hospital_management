@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myhospital_app',
     'admin_app',
+    'doctor',
+    'staff',
+    'patient'
 ]
 
 MIDDLEWARE = [
@@ -78,8 +81,13 @@ WSGI_APPLICATION = 'myhospital.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':  'myhospital2',
+        'USER':'postgres',
+        'PASSWORD':'4266',
+        'HOST':'localhost',
+        'PORT':'5432',
+        
     }
 }
 
@@ -121,9 +129,27 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR,'myhospital_app/static'),
+    os.path.join(BASE_DIR,'admin_app/static'),
+    os.path.join(BASE_DIR,'doctor/static'),
+    os.path.join(BASE_DIR,'staff/static'),
+    os.path.join(BASE_DIR,'patient/static'),
+    
+    
 ]
+
+
+MEDIA_URL= '/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'msfidal2001@gmail.com'
+EMAIL_HOST_PASSWORD = 'dqvkvrfsftocabrp'
