@@ -1,0 +1,67 @@
+{% extends "admin_app/admin_master.html" %}
+{% load static %}
+{% block header %}
+<style>
+	table {
+        width: 100%;
+        border-collapse: collapse;
+    
+      }
+    
+      th,
+      td {
+    
+        padding: 8px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+      }
+    
+      th {
+        background-color: #f2f2f2;
+      }
+    
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+    
+      .doc-rec {
+        padding-top: 50px;
+      }
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container-fluid doc-rec">
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Department</th>
+          <th>Image</th>
+          <th>View Slots</th>
+          <th>Add Slots</th>
+        </tr>
+        {% for doctor in doctors %}
+        <tr>
+          <td>{{doctor.doctorid}}</td>
+          <td>{{doctor.name}}</td>
+          <td>{{doctor.age}}</td>
+          <td>{{doctor.email}}</td>
+          <td>{{doctor.mobile}}</td>
+          <td>{{doctor.department.name}}</td>
+          <td><img src="{{doctor.image.url}}" alt="" width="100px"></td>
+          <td><a href="{% url 'admin_app:view_slots' doctor.id %}">VIew</a></td>
+          <td><a href="{% url 'admin_app:slot_managment' doctor.id %}">Add</a></td>
+    
+        </tr>
+         {% endfor %}
+      </table>
+    </div>
+{% endblock %}

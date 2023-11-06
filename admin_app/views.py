@@ -8,6 +8,7 @@ from django.conf import settings
 from django.db.models import F
 from .decorator import auth_admin
 from myhospital_app .models import Patient
+from patient.models import Slots
 
 
 # Create your views here.
@@ -23,7 +24,7 @@ def admin_doctor(request):
 
 @auth_admin
 def add_doctor(request):
-    departments = Departments.objects.filter(specialisation = 'doctor')
+    departments = Departments.objects.all()
     mail = ''
     msg=''
     if request.method =='POST':
@@ -32,18 +33,18 @@ def add_doctor(request):
         department = request.POST['department']
         qualification = request.POST['qualification']
         doctor_id = random.randint(1111,4444)
-        password = request.POST['password']
+         
         email = request.POST['email']
         mobile_no = request.POST['mobile']
         image = request.FILES['image']
         
         new_doctor = Doctor(
-            name = doctor_name,
+            name = doctor_name,                                         
             age = doctor_age,
             department_id = department,
             qualification = qualification,
             doctorid = doctor_id,
-            password = password,
+             
             email = email,
             mobile = mobile_no,
             image = image
@@ -52,7 +53,7 @@ def add_doctor(request):
         
         # sending mail to registred user
         
-        mail='uour id '+str(doctor_id)+'and password'+str(password)
+        mail='uour id '+str(doctor_id)+'and password is '+'12345678'
         msg ='Registered Successfully'
         send_mail(
             'You have been successfully registerd' ,
@@ -69,7 +70,7 @@ def staffs(request):
     return render(request,'admin_app/staffs.html')
 
 def staff_reg(request):
-    department = Departments.objects.filter(specialisation='staff')
+    department = Departments.objects.all()
     mail =''
     msg=''
     if request.method =='POST':
@@ -119,7 +120,7 @@ def logout(request):
 
 def doc_records(request):
     doctor = Doctor.objects.all()
-    return render(request,'admin_app/doctor_records.html',{'doctor':doctor})
+    return render(request,'admin_app/doctor_records.html',{'doctors':doctor})
 
 def staff_rec(request):
     staff = Staff.objects.all()
@@ -130,13 +131,12 @@ def departments(request):
     msg=''
     if request.method =='POST':
         dep_name = request.POST['department_name']
-        specialisation = request.POST['specialisation']
+        
         image = request.FILES['image']
         dep_exists = Departments.objects.filter(name=dep_name).exists()
         if not dep_exists:
             new_department = Departments(
                 name = dep_name,
-                specialisation=specialisation,
                 image = image
             
                 
@@ -148,5 +148,95 @@ def departments(request):
     return render(request,'admin_app/department.html',{'msg':msg,'dep':dep})
 
 def appoinments(request):
+    appoinment = Patient.objects.filter(status='pending') 
+    return render(request,'admin_app/appoinments.html',{'appoinments':appoinment})
+
+def slot(request):
+    doctor = Doctor.objects.all()
+    return render(request,'admin_app/slot.html',{'doctors':doctor})
+
+def view_slots(reuqest,d_id):
+    doctors = Doctor.objects.get(id=d_id)
+    slot = Slots.objects.filter(doctor=doctors)
+    
+    
+    return render(reuqest, 'admin_app/view_slots.html',{'doctor':doctors,'slot':slot})
+
+#adding slots to doctor
+def slot_managment(request, d_id):
+    msg = ''
+    doctor = Doctor.objects.get(id=d_id)
+    
+    if request.method == 'POST':
+        day = request.POST['day']
+        from_time = request.POST['from_time']
+        to_time = request.POST['to_time']
+        time_range = f"{from_time}-{to_time}"  #f-strings(formatted strings) to concatenate the 'from_time' and 'to_time' values with a hyphen '-' in between them.
+        
+        existing_slot = Slots.objects.filter(doctor=doctor, day=day, time=time_range).first()
+
+        if existing_slot:
+            msg = 'Slot already exists.'
+        else:
+            new_slot = Slots(doctor=doctor, day=day, time=time_range)
+            new_slot.save()
+            msg = 'Slot added successfully'
+        
+             
+         
+        
+    return render(request, 'admin_app/slot_managment.html', {'doctor': doctor, 'msg': msg})
+
+def delete_slot(reuqest,s_id):
+    try:
+    
+        slot = Slots.objects.get(id = s_id) 
+        slot.delete()   
+        
+        return redirect('admin_app:view_slots')
+    
+    except Slots.DoesNotExist:
+        
+        pass
+
+
+def doctor_profile(request, d_id):
+    doctors = Doctor.objects.get(id=d_id)
+    return render(request,'admin_app/doctor_profile.html',{'doctor':doctors})
+
+# def doctor_satus_update(request,Did):
      
-    return render(request,'admin_app/appoinments.html')
+#     doctor = Doctor.objects.get(id=Did)
+#     doctor.status='on leave'
+#     doctor.save()
+#     msg ='Dr'+str(doctor.name)+' You are kindly removed of your Duty in MyHospital.We Thankyou for your service'
+#     send_mail(
+#             subject = 'Your account was Approved',
+#             message = msg,
+#             from_email = 'msfidal2001@gmail.com',
+#             recipient_list = [doctor.email]
+            
+#         )
+#     return redirect('admin:doc_records')
+
+def remove_doctor(request, Did):
+    try:
+        doctor = Doctor.objects.get(id=Did)
+        doctor_name = doctor.name
+        doctor_email = doctor.email
+        doctor.delete()
+        
+        msg = f'Dr {doctor_name}, you have been removed from MyHospital. Thank you for your service.'
+
+        send_mail(
+            subject='Doctor Removal Notification',
+            message=msg,
+            from_email='msfidal2001@gmail.com',
+            recipient_list=[doctor_email]
+        )
+
+        return redirect('admin_app:doc_records')
+    except Doctor.DoesNotExist:
+        # Handle the case where the doctor with the provided ID does not exist.
+        # You can customize this error handling according to your needs.
+        pass

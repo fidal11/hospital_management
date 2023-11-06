@@ -8,7 +8,7 @@ app_name='myhospital_app'
 urlpatterns =[
     path('master',views.master,name='master'),
     path('login',views.login,name='login'),
-    path('register',views.register,name='register'),
+    path('booking',views.booking,name='booking'),
     path('home',views.home,name='home'),
     path('demo',views.demo,name='demo'),
     path('patient_portal',views.patient_portal,name='patient_portal'),
@@ -18,8 +18,11 @@ urlpatterns =[
     path('about_us',views.about_us,name='about_us'),
     path('contact',views.contact,name='contact'),
     path('get_doctors/', views.get_doctors, name='get_doctors'),
+    path('get_day/',views.get_day,name = 'get_day'),
+    path('get_time/',views.get_time,name = 'get_time'),
+    path('patient_register',views.patient_register,name='patient_register'),
     
-    
+     
     
 
 ]

@@ -10,12 +10,15 @@ urlpatterns =[
     path('patients',views.patients,name='patients'),
     path('patient/records',views.records,name='records'),
     path('appoinments',views.appoinments,name='appoinments'),
-    path('prescription/<int:aid>',views.prescription,name='prescription'),
+    path('prescription/<int:booking_id>',views.prescription,name='prescription'),
     path('discharge/request',views.discharge_req,name='discharge_request'),
-    path('consulted/<int:pid>',views.consulted,name='consulted'),
+    path('patient/profile/<int:bid>',views.patient_profile,name='patient_profile'),
+    path('change/password',views.change_password,name='change_password'),
+    
+     
     
     
-    
+        
     
     
     

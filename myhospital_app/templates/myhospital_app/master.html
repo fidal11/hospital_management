@@ -34,6 +34,9 @@
                         <a class="nav-link active" aria-current="page" href="home">Home</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link " href="{% url 'myhospital_app:patient_portal' %}">Patient Portal</a>
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link" href="{% url 'myhospital_app:about_us' %}">About us</a>
                       </li>
                       <li class="nav-item">
@@ -55,9 +58,9 @@
                       
                        
                     </ul>
-                    <form class="d-flex" role="search">
-                     <a href="{% url 'myhospital_app:register' %}"> <button class="btn btn-outline-success" type="button">Make Appoinment</button></a>
-                    </form>
+                    <div>
+                     <a href="{% url 'myhospital_app:booking' %}"> <button class="btn btn-outline-success" type="button">Make Appoinment</button></a>
+                    </div>
                   </div>
                 </div>
               </nav>

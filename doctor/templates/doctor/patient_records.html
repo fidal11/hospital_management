@@ -42,19 +42,20 @@
           <th>Age</th>
           <th>Mobile</th>
           <th>Place</th>
-          <th>Symptoms</th>
+          <th>Status</th>
+           <th></th>
           
            
         </tr>
-      {% for i in patient %}
+      {% for i in booking %}
         <tr>
-          <td>{{i.name}}</td>
+          <td>{{i.name |title}}</td>
           <td>{{i.age}}</td>
-           
           <td>{{i.phone}}</td>
-          <td>{{i.place}}</td>
+          <td>{{i.place |title}}</td>
+          <td>{{i.status |title}}</td>
+           <td><a href="{% url 'doctor:patient_profile' i.id %}">View</a></td>
            
-          <td>{{i.Symptoms}}</td>
     
         </tr>
         {% endfor %}

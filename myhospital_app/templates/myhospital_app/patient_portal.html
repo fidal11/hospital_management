@@ -7,38 +7,54 @@
 
 
 
-{% block content %} 
-<div class="container-fluid parent_portal  ">
-     
-        <div class="child1">
-            <img src="{% static 'image/appoinment.png' %}" alt="" width="40%">
-            <h5>Appoinment</h5>
-            <p>new patient appoinment. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, dignissimos.</p>
-          <a href="register"> <button type="button" class="btn btn-success  ">Go</button></a> 
-        </div>
-        <div class="child1"></div>
-
-    </div>
-     
-<!--          
-        <div class="log_form  col-md-4">
-            <h1>Login</h1>
-            <form>
-              <label for="username">Username:</label>
-              <input type="text" id="username" name="username" required>
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required>
-              <input type="submit" value="Login">
-              <a href="home">Go back</a>
-            </form>
-          </div> -->
-          
-    
-          
-    </div>	
+{% block content %}
 
 
+<section class="main-section">
+
+  <div class="patient-portal">
+
+<div class=""><h3>New to the Hospital?</h3>
+  <p><h6><a href="{% url 'myhospital_app:patient_register' %}">Register</a> as a patient and track your activity.</h6>orem ipsum, dolor sit amet consectetur
+    adipisicing elit. Modi accusantium illum illo iure omnis dolor
+    L animi maxime quam nostrum voluptates Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+    Eveniet, repudiandae</p>
 </div>
+<div class="portal-background">
+<img src="https://www.emedstore.in//blogadmin/uploads/post/main/Telemedicine-Main(Blog)_POST_1617701385.png" alt="" width="900px">
+</div>
+
+
+  </div>
+  
+
+  <div class="login-section">
+
+    <div class="login_form">
+      <h1>Login</h1>
+      <form method="POST">
+        {% csrf_token %}
+
+        <label for="username">Email:</label>
+        <input type="text" id="id" name="patient_id"><span id="id_span"></span>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="password_span"></span>
+        <input type="submit" value="Login" onclick="">
+      </form>
+      <a href="home"></a>
+      <p class="signup-link">
+        No account?
+        <a href="register">Sign up</a>
+      </p>
+    </div>
+
+  </div>
+
+
+
+</section>
+
 
 
 

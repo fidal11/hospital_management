@@ -53,21 +53,28 @@
         <a href="{% url 'admin_app:home' %}">
           <div class="dash1 "><i class="las la-igloo">Dashboard</i></div>
         </a>
+
+        <a href="{% url 'admin_app:departments' %}">
+          <div class="dash-elements"> <i class="las la-igloo">Departments</i></div>
+        </a>
+
+        <a href="{% url 'admin_app:admin_doctor' %}">
+          <div class="dash-elements"><i class="las la-stethoscope">Doctors</i></div>
+        </a>
+
+        <a href="{% url 'admin_app:slot' %}">
+          <div class="dash-elements"><i class="las la-cube">Slot</i></div>
+        </a>
+
         <a href="{% url 'admin_app:appoinments' %}">
           <div class="dash-elements"> <i class="las la-calendar-check">Appoinments</i></div>
         </a>
         <a href="">
           <div class="dash-elements"><i class="las la-user-injured">Patients</i></div>
         </a>
-        <a href="{% url 'admin_app:admin_doctor' %}">
-          <div class="dash-elements"><i class="las la-stethoscope">Doctors</i></div>
-        </a>
-        <a href="{% url 'admin_app:staffs' %}">
-          <div class="dash-elements"><i class="las la-user-nurse">Staffs</i></div>
-        </a>
-        <a href="{% url 'admin_app:departments' %}">
-          <div class="dash-elements"> <i class="las la-igloo">Departments</i></div>
-        </a>
+        
+         
+        
         
         <div class="logout"><a href="{% url 'admin_app:logout' %}"><button type="button" class="btn btn-danger"> logout</button></a></div>
 

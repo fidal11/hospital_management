@@ -1,0 +1,75 @@
+{% extends "doctor/master.html" %}
+{% load static %}
+{% block header %}
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+  }
+
+  th,
+  td {
+
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+
+  .doc-rec {
+    padding-top: 50px;
+  }
+
+  .report,
+  .medicine {
+    width: 500px;
+    height: 100px;
+    border: black 1px;
+    display: flex;
+
+  }
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<div class="mb-3">
+  <table>
+    <tr>
+      <th>Name :</th>
+
+      <td>{{booking.name |title}}</td>
+      <th>Age :</th>
+      <td>{{booking.age}}</td>
+    </tr>
+    <tr>
+      <th>DOB :</th>
+      <td>{{booking.dob}}</td>
+      <th>Place</th>
+      <td>{{booking.phone |title}}</td>
+    </tr>
+  </table>
+</div>
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <div class="mb-3 report">
+
+    <h6>Report :</h6> {{prescription.diagnosis}}
+  </div>
+  <div class="mb-3 medicine">
+    <h6>Medicine :</h6> {{prescription.medication_name}}
+  </div>
+   
+</form>
+{% endblock %}

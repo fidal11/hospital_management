@@ -1,0 +1,73 @@
+{% extends "patient/master.html" %}
+{% load static %}
+{% block header %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        
+      }
+      
+      th, td {
+         
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      th {
+        background-color: #f2f2f2;
+      }
+      
+      tr:hover {
+        background-color: #f5f5f5;
+      }
+      .doc-rec{
+        padding-top: 50px;
+      }
+
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+ 
+<div class="container-fluid doc-rec">
+    
+
+    <table>
+        <tr>
+          
+          <th>Doctor</th>
+          <th>Department</th>
+          <th>Appoinment Date</th>
+          <th>Appoinment Time</th>
+          <th>Status</th>
+          <th>Prescription</th>
+
+          
+        </tr>
+        {% for i in bookings %} 
+        <tr>
+           
+          <td>{{i.doctor.name}}</td>
+          <td>{{i.department.name}}</td>
+          <td>{{i.slot.day}}</td>
+          <td>{{i.slot.time}}</td>
+          <td>{{i.status}}</td>
+          <td><a href="{% url 'patient:prescriptions' %}">prescriptions</a></td>
+           
+           
+    
+        </tr>
+        {% endfor %}
+         
+      </table>
+    </div>
+    
+ 
+
+{% endblock %}

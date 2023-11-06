@@ -1,0 +1,85 @@
+{% extends "patient/master.html" %}
+{% load static %}
+{% block header %}
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;1,200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
+
+    .main {
+        width: 100%;
+        padding: 20px 5%;
+    }
+
+    .patient-cards {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+         
+        font-family: 'Poppins', sans-serif;
+
+    }
+    .card{
+        width: 300px;
+        height: 120px;
+        display: flex;
+        flex-direction: row;
+    }
+    .card-text{
+        width: 70%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+      
+        
+    }
+    .card-image{
+        width: 30%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        
+    }
+</style>
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<section class="main">
+    <div class="patient-cards">
+        <a href="{% url 'patient:new_booking' %}">
+         <div class="card cards">
+            <div class="card-image">
+                <i class="las la-plus-circle" style="font-size: 60px;"></i>
+            </div>
+            <div class="card-text">
+                <h3>New Appoinment</h3>
+            </div>
+         </div>
+         </a>
+         <a href="{% url 'patient:appoinment_list' %}">
+         <div class="card cards">
+            <div class="card-image">
+                <i class="las la-tasks" style="font-size: 60px;"></i>
+            </div>
+            <div class="card-text">
+                <h3>Appoinments</h3>
+            </div>
+         </div>
+         </a>
+
+           
+    </div>
+</section>
+{% endblock %}

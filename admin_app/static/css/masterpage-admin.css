@@ -110,6 +110,7 @@
    }
    .admin-cards{
       display: flex;
+      width: 100%;
       justify-content: space-evenly;
       padding-top: 50px;
       font-family: Georgia, 'Times New Roman', Times, serif;
@@ -123,3 +124,25 @@
       box-shadow: 5px 10px #888888;
 
    }
+
+   .back-button{
+    
+    
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0 12px;
+      line-height: 20px;
+      height: 30px;
+      max-height: 30px;
+      background: none;
+      font-weight: 700;
+      border: 0;
+      border-radius: 0;
+      color: #4682A9;
+     
+      box-shadow: none;
+  
+  
+    }

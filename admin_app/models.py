@@ -1,5 +1,8 @@
 from django.db import models
 
+ 
+
+
 # Create your models here.
 
 class Admin(models.Model):
@@ -12,8 +15,11 @@ class Admin(models.Model):
         
 class Departments(models.Model):
     name = models.CharField(max_length=50)
-    specialisation = models.CharField(max_length=30,default='')
     image = models.ImageField(upload_to = 'departments', default='')
     
-    class meta:
+    class Meta:
         db_table = 'departments_tb'
+        
+
+
+    

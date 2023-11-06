@@ -15,6 +15,17 @@ urlpatterns =[
     path('staff/records',views.staff_rec,name='staff_rec'),
     path('departments',views.departments,name='departments'),
     path('appoinments',views.appoinments,name='appoinments'),
+    path('slot/managment/<int:d_id>',views.slot_managment,name='slot_managment'),
+    path('slot',views.slot,name='slot'),
+    path('doctor_profile/<int:d_id>',views.doctor_profile,name='doctor_profile'),
+    path('remove_doctor/<int:Did>',views.remove_doctor,name='remove_doctor'),
+    path('view/slots/<int:d_id>',views.view_slots,name='view_slots'),
+    path('delete/slots/<int:s_id>',views.delete_slot,name='delete_slot'),
+    
+    
+    
+    
+    
     
      
     

@@ -1,0 +1,140 @@
+{% extends "patient/master.html" %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<section class="main-section">
+
+
+    <div class="profile-section">
+        <div class="top-section">
+            
+            <div class="profile-details">
+                <h3>{{patient.name |title}}</h3>
+                <h4>Age :{{patient.age}}</h4>
+            </div>
+            <div class="profile-image">
+                <img src="{% static 'image/doctor.png' %}" alt="" width="70%">
+            </div>
+        </div>
+
+        <div class="bottom-section">
+
+            <table>
+                <tr>
+                    <td>
+                        <h5>Mobile :</h5>
+                    </td>
+                    <td>
+                        <h5>{{patient.phone}}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Adress :</h5>
+                    </td>
+                    <td>
+                        <h5>{{patient.place|title}}</h5>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <h5>DOB :</h5>
+                    </td>
+                    <td>
+                        <h5>{{patient.dob}}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Gender :</h5>
+                    </td>
+                    <td>
+                        <h5>{{patient.gender |title}}</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>Email :</h5>
+                    </td>
+                    <td>
+                        <h5>{{patient.email}}</h5>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="bottom-child">
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <div class="info-section">
+
+        <div class="top-info">
+            <div><h3>Recent Booking</h3></div>
+            <table>
+                {% for i in booking %}
+                <tr>
+                    <th>Doctor :</th>
+                    <td>{{i.doctor.name}}</td>
+                </tr>
+                <tr>
+                    <th>Department :</th>
+                    <td>{{i.department.name}}</td>
+
+                </tr>
+                <tr>
+                    <th>Day :</th>
+                    <td>{{i.slot.day}}</td>
+
+                </tr>
+                <tr>
+                    <th>Time :</th>
+                    <td>{{i.slot.time}}</td>
+
+                </tr>
+                <tr>
+                    <th>Status :</th>
+                    <td>{{i.patient.status}}</td>
+
+                </tr>
+                
+                 
+                {% endfor %}
+            </table>
+
+             
+
+        </div>
+         
+
+        
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,300;1,200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-section{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgb(83, 81, 81);
+    padding: 20px 5%;
+    font-family: 'Poppins', sans-serif;
+    
+    border-radius: 10px;
+
+}
+ 
+.profile-section{
+    width: 45%;
+    min-height: 600px;
+    background-color: blue ;
+    border-radius: 10px;
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid rgba(0, 0, 0, 0.175);
+
+
+    
+}
+.info-section{
+    width: 45%;
+    height: 600px;
+    background-color: blue;
+    border-radius: 10px;
+    /* border: 1px solid rgba(0, 0, 0, 0.175); */
+
+
+}
+
+/* profile section styles */
+
+.top-section{
+    width: 100%;
+    height: 32%;
+    padding: 20px 5%;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    background-color: aqua;
+    border-radius: 10px 10px 0 0;
+    border: 1px black ;
+
+    
+
+}
+.profile-image{
+    width: 45%;
+    height: 150px;
+    /* background-color: green; */
+    border-radius: 10px;
+    text-align: center;
+
+}
+.profile-details{
+    width: 45%;
+    height: 150px;
+    /* background-color: #4682A9; */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+
+    /* color: white; */
+}
+
+.bottom-section{
+    width: 100%;
+    height: 68%;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 5%;
+    border: 1px black ;
+    flex-wrap: wrap;
+
+
+
+
+
+}
+.bottom-section table{
+    width: 100%;
+    height: 50%;
+    /* background-color: burlywood; */
+    
+    
+}
+td {
+    padding:15px;
+}
+.bottom-child{
+    width: 100%;
+    height: 50%;
+    /* background-color: darkcyan; */
+}
+
+
+/* info section styles */
+
+.top-info{
+    width: 100%;
+    height: 40%;
+    padding: 20px 5% 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    flex-wrap: wrap;
+
+    
+        
+}
+.info-cards{
+    width: 100%;
+    height: 45%;
+    background-color: #4682A9;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+    color: white;
+    
+
+}
+/* .cards-image{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.cards-content{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: fantasy;
+
+} */

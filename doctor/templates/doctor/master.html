@@ -32,9 +32,9 @@
 
     <div class="row container-fluid">
       <div class="col-sm-2 dashboard1">
-        <div class=" "><img src="{% static 'image/admin-logo.png' %}" alt="" width="60px" class="profile">
+        <div class=" "><img src="{{doctor.image.url}}" alt="" width="60px" class="profile">
           <br>
-          <h3>{{doctor.name}}</h3>
+          <h3></h3>
         </div>
         
 
@@ -58,7 +58,7 @@
     <div class="row container-fluid">
       <div class=" col-sm-2 dashboard2">
 
-        <div class="" style="color: white;"><h4> {{doctor.name}}</h4></div>
+        <div class="" style="color: white;"><h4>{{doctor.name}}</h4></div>
 
         <a href="{% url 'doctor:home' %}">
           <div class="dash1 "><i class="las la-igloo">Dashboard</i></div>
@@ -68,6 +68,9 @@
         </a>
         <a href="{% url 'doctor:appoinments' %}">
           <div class="dash-elements"> <i class="las la-calendar-check">Appoinments</i></div>
+        </a>
+        <a href="{% url 'doctor:change_password' %}">
+          <div class="dash-elements"> <i class="las la-calendar-check">Change Password</i></div>
         </a>
          
          

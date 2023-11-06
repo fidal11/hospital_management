@@ -42,11 +42,11 @@
                 adipisicing elit. Modi accusantium illum illo iure omnis dolor
                 L animi maxime quam nostrum voluptates Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Eveniet, repudiandae</p>
-            <a href="register"> <button type="button" class="btn btn-outline-success">Go</button></a>
+            <a href="{% url 'myhospital_app:patient_register' %}"> <button type="button" class="btn btn-outline-success">Go</button></a>
     </div>
 
     <div class="child_login" data-aos="fade-left" data-aos-duration="7000" data-aos-easing="ease-in-out">
-        <a href="register"> <img src="{% static 'image/patient_portal.png' %}" alt=""></a>
+        <a href="{% url 'myhospital_app:patient_register' %}"> <img src="{% static 'image/patient_portal.png' %}" alt=""></a>
 
     </div>
 
@@ -79,7 +79,7 @@
 
 
 
-<div class="dep-section" >
+<section class="dep-section">
 
 
 
@@ -90,12 +90,15 @@
 
 
         <div class="child-dep">
-            <img src="{% static 'image/dep1.jpg' %}" alt="">
-            <h3>General Medicine</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, praesentium. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Quo nulla molestiae nam sequi omnis odit sed repellat facilis rerum ipsam.
-            </p>
-
+            <div class=""><img src="{% static 'image/dep1.jpg' %}" alt=""></div>
+            <div class="">
+                <h3>General Medicine</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, praesentium. Lorem ipsum dolor sit
+                    amet
+                    consectetur adipisicing elit. Quo nulla molestiae nam sequi omnis odit sed repellat facilis rerum
+                    ipsam.
+                </p>
+            </div>
         </div>
         <div class="child-dep">
             <img src="{% static 'image/dep2.jpg' %}" alt="">
@@ -121,7 +124,7 @@
                 molestias mollitia, aliquam natus, dolor consequatur officiis magnam praesentium cum nemo.</p>
 
         </div>
-        
+
 
 
 
@@ -129,36 +132,33 @@
     <div class="dep-button" data-aos="fade-up" data-aos-duration="7000" data-aos-easing="ease-in-out">
         <button type="button" class="btn btn-outline-success">Show More</button>
     </div>
-</div>
+</section>
 
 <br>
 
 <div class="container-fluid false-section">
-    <div class="container-fluid" style="padding-top: 50px;"><img src="{% static 'image/hospitall.png' %}" alt="" width="100%"></div>
+    <div class="container-fluid" style="padding-top: 50px;"><img src="           " alt=""
+            width="100%"></div>
 </div>
 
 
 
-<div class="container-fluid ">
-    <div class="row dep-heading">
-        <h1>Meet Our Doctors</h1>
-        {% for i in doctor %}
-        <div class="col-md-3">
-            <div class="child-dep">
-                <img src="{{i.image.url}}" alt="">
-                <h3>{{i.name |title}}</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique modi eligendi laudantium pariatur
-                    saepe,
-                    molestias mollitia, aliquam natus, dolor consequatur officiis magnam praesentium cum nemo.</p>
-    
-            </div>
+<div class="container mt-5 mb-5">
+    <div class="row">
+{% for i in doctor %}
+     <div class="cards col-md-3">
+        <div class="card-image">
+            <img src="{{i.image.url}}" alt=".." width="50%">
+        </div>
+        <div class="card-texts">
+            <h4>{{i.name |title}}</h4>
+            <h6>{{i.department.name |title}}</h6>
 
         </div>
-{% endfor %}
-    </div>
-
+     </div>
+     {% endfor %}
+     </div>
 </div>
-
 
 
 
@@ -167,9 +167,9 @@
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-  AOS.init({
-   
-  });
+    AOS.init({
+        once: true,
+    });
 </script>
 
 {% endblock %}

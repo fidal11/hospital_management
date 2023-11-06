@@ -45,19 +45,23 @@
           <th>Email</th>
           <th>Mobile</th>
           <th>Appoinment Date</th>
+          <th>Time</th>
+          <th>Status</th>
           <th></th>
-          <th></th>
+           
           
         </tr>
-        {% for i in patient %} 
+        {% for i in bookings %} 
         <tr>
           <td>{{i.name}}</td>
           <td>{{i.age}}</td>
           <td>{{i.email}}</td>
           <td>{{i.phone}}</td>
-          <td>{{i.date_of_appoinment}}</td>
+          <td>{{i.slot.day}}</td>
+          <td>{{i.slot.time}}</td>
+          <td>{{i.status}}</td>
           <td><a href="{% url 'doctor:prescription' i.id %}">View</a></td>
-          <td><a href="{% url 'doctor:consulted' i.id %}">consulted</a></td>
+          
            
            
     

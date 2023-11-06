@@ -1,0 +1,251 @@
+{% extends "myhospital_app/master.html" %}
+{% load static %}
+{% block header %}
+<style>
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		margin-top: 50px;
+	}
+	.main{
+		width: 100%;
+		padding: 25px 8%;
+		 
+	}
+
+	.form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 10px;
+		border: 1px solid rgba(0, 0, 0, 0.175);
+		
+		 
+	}
+
+	input[type=text],
+	input[type=password],
+	input[type=file],
+	input[type=date],
+	select {
+		margin: 10px;
+		padding: 10px;
+		width: 500px;
+		border-radius: 5px;
+		border: 1px solid #ccc;
+	}
+
+	input[type=submit] {
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 10px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	label {
+		margin: 10px;
+	}
+
+	 
+	.submitTr{
+		width: 100%;
+		text-align: center;
+	}
+	 
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+<section class="main">
+
+<div class="container-fluid form">
+	<div class="" style="text-align: center; margin-top: 20px; margin-bottom: 20px; font-family:fantasy">
+		<h2>Make an Appoinment</h2>
+	</div>
+	<form action="" method="POST" enctype="multipart/form-data">
+	<table>
+		{{ msg }}
+
+
+
+		
+			{% csrf_token %}
+
+			<tr>
+				<td><label for="name">Name :</label></td>
+				<td><input type="text" id="name" name="name" required></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td><label for="age">Age :</label></td>
+				<td><input type="text" name="age" required></td>
+				<td><label for="gender">Gender :</label></td>
+
+				<td>
+					<select name="gender" id="gender">
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</td>
+			</tr>
+			 
+			 
+			 
+
+			<tr>
+				<td><label for="phone">Phone No :</label></td>
+				<td><input type="text" name="phone"></td>
+
+				<td><label for="email">Email :</label></td>
+				<td><input type="text" name="email"></td>
+			</tr>
+
+
+			 
+
+			<tr>
+				<td><label for="">Department :</label></td>
+				<td>
+					<select name="department" id="department-select">
+						<option value="" selected disabled>Select a Department</option>
+						{% for i in departments %}
+						<option value="{{i.id}}">{{i.name}}</option>
+						{% endfor %}
+					</select>
+				</td>
+
+				<td><label for="doctor">Doctor :</label></td>
+				<td>
+					<select name="doctor" id="doctor-select">
+						<option value="" disabled selected>Select Doctor</option>
+						{% for i in doctor %}
+						
+						<option value="{{i.id}}">{{i.name}}</option>
+						{% endfor %}
+					</select>
+				</td>
+			</tr>
+			 
+			<tr>
+				<td><label for="date">Date</label></td>
+				<td> <select name="day-select" id="day-select">
+					<option value="" disabled selected>Select Date</option>
+						{% for i in slots %}
+						
+						<option value="{{i.id}}">{{i.day}}</option>
+						{% endfor %}
+				</select></td>
+
+				<td><label for="time">Time</label></td>
+				<td><select name="time-select" id="time-select">
+					<option value="" disabled selected>Select Time</option>
+						{% for i in slots %}
+						
+						<option value="{{i.id}}">{{i.time}}</option>
+						{% endfor %}
+				</select></td>
+			</tr>
+
+			 
+
+
+
+			 
+
+		
+	</table>
+				
+	<div class="submitTr"> <td><input type="submit" value="Submit"></td></div>
+	</form>
+</div>
+</section>
+
+
+ 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ 
+	<script>
+		$(document).ready(function() {
+			$('#department-select').on('change', function() {
+				let departmentId = $(this).val();
+				$.ajax({
+					url: '/get_doctors/',
+					data: { department_id: departmentId },
+					dataType: 'json',
+					success: function(data) {
+						let doctorSelect = $('#doctor-select');
+						doctorSelect.empty();
+						doctorSelect.append($('<option>').text("select"));
+						$.each(data, function(index, doctor) {
+							doctorSelect.append($('<option>').text(doctor.name).attr('value', doctor.id));
+						});
+					}
+				});
+			});
+        
+		
+			$('#doctor-select').change(function () {
+				let doctorId = $(this).val();
+				$.ajax({
+					url: '/get_day/',
+					data: { doctor_id: doctorId },
+					dataType: 'json',
+					success: function (data) {
+						console.log(data);
+						let daySelect = $('#day-select');
+						daySelect.empty();
+						daySelect.append($('<option>').text("select"));
+						$.each(data, function (index, slot) {
+							console.log(slot)
+							daySelect.append($('<option>').text(slot.day).attr('value', slot.id));
+						});
+					}
+				});
+			});
+
+
+			$('#doctor-select').change(function () {
+				let doctorId = $(this).val();
+				$.ajax({
+					url: '/get_time/',
+					data: { doctor_id: doctorId },
+					dataType: 'json',
+					success: function (data) {
+						console.log(data);
+						let timeSelect = $('#time-select');
+						timeSelect.empty();
+						timeSelect.append($('<option>').text("select"));
+						$.each(data, function (index, slot) {
+							console.log(slot)
+							timeSelect.append($('<option>').text(slot.time).attr('value', slot.id));
+						});
+					}
+				});
+			});
+
+		});
+	</script>
+ 
+
+ 
+  
+
+
+
+< {% endblock %}

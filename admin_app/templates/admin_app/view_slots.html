@@ -1,0 +1,114 @@
+{% extends "admin_app/admin_master.html" %}
+{% load static %}
+{% block header %}
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+  
+    }
+  
+    th,
+    td {
+  
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    th {
+      background-color: #f2f2f2;
+    }
+  
+  
+    .doc-rec {
+      padding-top: 50px;
+    }
+  
+    input[type=text],
+    input[type=password],
+    input[type=file],
+    input[type=date],
+    input[type=number],
+    select {
+      margin: 10px;
+      padding: 10px;
+      width: 80px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button{
+      
+      display: inline-block;
+      outline: 0;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
+      font-size: 13px;
+      height: 30px;
+      background-color: #0000000d;
+      color: #0e0e10;
+      padding: 0 20px;
+      
+  
+    }
+    .table-section{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap ;
+        padding: 4rem 0 0;
+         
+    }
+    
+  </style>
+  
+  {% endblock %}
+  
+  
+  
+  {% block content %}
+  
+  
+<section  class="table-section">
+  <div class="mb-3">
+    <table>
+      <tr>
+        <th>Name :</th>
+  
+        <td>{{doctor.name |title}}</td>
+        <th>ID :</th>
+        <td>{{doctor.doctorid}}</td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td>{{doctor.status |title}}</td>
+        <th>Add Slot :</th>
+        <td><a href="{% url 'admin_app:slot_managment' doctor.id %}">Add</a></td>
+        
+      </tr>
+    </table>
+  </div>
+  <div class="mb-3">
+    <table>
+        <tr>
+            <td><h6>Day</h6></td>
+            <td><h6>Time</h6></td>
+            <td><h6>Add Slot</h6></td>
+            <td><h6>Delete Slot</h6></td>
+
+        </tr>
+        {% for i in slot %}
+        <tr>
+            <td>{{i.day |title}}</td>
+            <td>{{i.time}}</td>
+            <td></td>
+            <td><a href="{% url 'admin_app:delete_slot' i.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+  </div>
+</section>
+
+
+{% endblock %}
